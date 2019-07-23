@@ -1,7 +1,7 @@
 import {RootStoreEvents} from './root-store.events';
 import {IUI} from '../app.model';
 
-const isOnlineComplete = (state: IUI, event): {online: boolean}  => {
+const onlineSnapShot = (state: IUI, event): {online: boolean}  => {
   const online = event.payload;
   return {...state, online};
 };
@@ -15,7 +15,7 @@ export function getReducers(
   switch (event.type) {
 
     case RootStoreEvents.IS_ONLINE_COMPLETE: {
-      return isOnlineComplete(state, event);
+      return onlineSnapShot(state, event);
     }
 
     default: {

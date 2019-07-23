@@ -1,4 +1,10 @@
+
+
+<button (click)="onQueryAllBooks()">Query All Books</button>
+<h1>Books Projection</h1>
 <ul>
   <li *ngFor="let user of users$ | async">{{user.name}}</li>
 </ul>
+
+<h1>Combine Projections</h1>
 <pre>{{combineLatestExample$ | async | json}}</pre>

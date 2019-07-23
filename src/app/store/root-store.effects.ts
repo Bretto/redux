@@ -17,13 +17,13 @@ export class RootStoreEffects {
   }
 
   @Effect()
-  queryAllUser$ = this.actions$
+  queryAllBooks$ = this.actions$
     .pipe(
-      ofType(RootStoreCommands.QUERY_ALL_USER),
-      switchMap(_ => this.service.getAllUser()
+      ofType(RootStoreCommands.QUERY_ALL_BOOKS),
+      switchMap(_ => this.service.getAllBooks()
         .pipe(
-          map((res) => this.events.queryAllUserComplete(res)),
-          catchError(err => this.events.queryAllUserError(err))
+          map((res) => this.events.queryAllBooksComplete(res)),
+          catchError(err => this.events.queryAllBooksError(err))
         )));
 
   @Effect()
@@ -41,4 +41,7 @@ export class RootStoreEffects {
       filter((action: any) => !!action.error),
       map((action: any) => alert(action.payload))
     );
+
+
+
 }
